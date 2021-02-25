@@ -57,7 +57,7 @@ void CorsairLightingNodeController::KeepaliveThread()
 unsigned char CorsairLightingNodeController::GetFanPercent(unsigned char fan_channel)
 {
     int             actual;
-    unsigned char   usb_buf[64];
+    unsigned char   usb_buf[65];
 
     /*-----------------------------------------------------*\
     | Zero out buffer                                       |
@@ -67,14 +67,15 @@ unsigned char CorsairLightingNodeController::GetFanPercent(unsigned char fan_cha
     /*-----------------------------------------------------*\
     | Set up Get Fan RPM packet                             |
     \*-----------------------------------------------------*/
-    usb_buf[0x00]   = CORSAIR_LIGHTING_NODE_PACKET_ID_GET_FAN_PERCENT;
-    usb_buf[0x01]   = fan_channel;
+    usb_buf[0x00]   = 0x00;
+    usb_buf[0x01]   = CORSAIR_LIGHTING_NODE_PACKET_ID_GET_FAN_PERCENT;
+    usb_buf[0x02]   = fan_channel;
 
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_write(dev, usb_buf, 64);
-    actual = hid_read(dev, usb_buf, 16);
+    hid_write(dev, usb_buf, 65);
+    actual = hid_read(dev, usb_buf, 17);
 
     if(actual > 0)
     {
@@ -89,7 +90,7 @@ unsigned char CorsairLightingNodeController::GetFanPercent(unsigned char fan_cha
 unsigned short CorsairLightingNodeController::GetFanRPM(unsigned char fan_channel)
 {
     int             actual;
-    unsigned char   usb_buf[64];
+    unsigned char   usb_buf[65];
 
     /*-----------------------------------------------------*\
     | Zero out buffer                                       |
@@ -99,14 +100,15 @@ unsigned short CorsairLightingNodeController::GetFanRPM(unsigned char fan_channe
     /*-----------------------------------------------------*\
     | Set up Get Fan RPM packet                             |
     \*-----------------------------------------------------*/
-    usb_buf[0x00]   = CORSAIR_LIGHTING_NODE_PACKET_ID_GET_FAN_RPM;
-    usb_buf[0x01]   = fan_channel;
+    usb_buf[0x00]   = 0x00;
+    usb_buf[0x01]   = CORSAIR_LIGHTING_NODE_PACKET_ID_GET_FAN_RPM;
+    usb_buf[0x02]   = fan_channel;
 
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_write(dev, usb_buf, 64);
-    actual = hid_read(dev, usb_buf, 16);
+    hid_write(dev, usb_buf, 65);
+    actual = hid_read(dev, usb_buf, 17);
 
     if(actual > 0)
     {
@@ -271,7 +273,7 @@ void CorsairLightingNodeController::SetFanConfiguration
         unsigned char   fan_configuration
     )
 {
-    unsigned char   usb_buf[64];
+    unsigned char   usb_buf[65];
 
     /*-----------------------------------------------------*\
     | Zero out buffer                                       |
@@ -281,16 +283,17 @@ void CorsairLightingNodeController::SetFanConfiguration
     /*-----------------------------------------------------*\
     | Set up Fan Configuration packet                       |
     \*-----------------------------------------------------*/
-    usb_buf[0x00]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CONFIG;
-    usb_buf[0x01]   = 0x02;
-    usb_buf[0x02]   = fan_channel;
-    usb_buf[0x03]   = fan_configuration;
+    usb_buf[0x00]   = 0x00;
+    usb_buf[0x01]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CONFIG;
+    usb_buf[0x02]   = 0x02;
+    usb_buf[0x03]   = fan_channel;
+    usb_buf[0x04]   = fan_configuration;
 
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_write(dev, usb_buf, 64);
-    hid_read(dev, usb_buf, 16);
+    hid_write(dev, usb_buf, 65);
+    hid_read(dev, usb_buf, 17);
 }
 
 void CorsairLightingNodeController::SetFanPercent
@@ -299,7 +302,7 @@ void CorsairLightingNodeController::SetFanPercent
         unsigned char   fan_cmd
     )
 {
-    unsigned char   usb_buf[64];
+    unsigned char   usb_buf[65];
 
     /*-----------------------------------------------------*\
     | Zero out buffer                                       |
@@ -309,15 +312,16 @@ void CorsairLightingNodeController::SetFanPercent
     /*-----------------------------------------------------*\
     | Set up Fan Fixed Percent Command packet               |
     \*-----------------------------------------------------*/
-    usb_buf[0x00]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CMD_PERCENT;
-    usb_buf[0x01]   = fan_channel;
-    usb_buf[0x02]   = fan_cmd;
+    usb_buf[0x00]   = 0x00;
+    usb_buf[0x01]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CMD_PERCENT;
+    usb_buf[0x02]   = fan_channel;
+    usb_buf[0x03]   = fan_cmd;
 
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_write(dev, usb_buf, 64);
-    hid_read(dev, usb_buf, 16);
+    hid_write(dev, usb_buf, 65);
+    hid_read(dev, usb_buf, 17);
 }
 
 void CorsairLightingNodeController::SetFanRPM
@@ -326,7 +330,7 @@ void CorsairLightingNodeController::SetFanRPM
         unsigned short  fan_cmd
     )
 {
-    unsigned char   usb_buf[64];
+    unsigned char   usb_buf[65];
 
     /*-----------------------------------------------------*\
     | Zero out buffer                                       |
@@ -336,16 +340,17 @@ void CorsairLightingNodeController::SetFanRPM
     /*-----------------------------------------------------*\
     | Set up Fan Fixed RPM Command packet                   |
     \*-----------------------------------------------------*/
-    usb_buf[0x00]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CMD_RPM;
-    usb_buf[0x01]   = fan_channel;
-    usb_buf[0x02]   = fan_cmd & 0xFF;
-    usb_buf[0x03]   = fan_cmd >> 8;
+    usb_buf[0x00]   = 0x00;
+    usb_buf[0x01]   = CORSAIR_LIGHTING_NODE_PACKET_ID_FAN_CMD_RPM;
+    usb_buf[0x02]   = fan_channel;
+    usb_buf[0x03]   = fan_cmd & 0xFF;
+    usb_buf[0x04]   = fan_cmd >> 8;
 
     /*-----------------------------------------------------*\
     | Send packet                                           |
     \*-----------------------------------------------------*/
-    hid_write(dev, usb_buf, 64);
-    hid_read(dev, usb_buf, 16);
+    hid_write(dev, usb_buf, 65);
+    hid_read(dev, usb_buf, 17);
 }
 
 /*-------------------------------------------------------------------------------------------------*\
