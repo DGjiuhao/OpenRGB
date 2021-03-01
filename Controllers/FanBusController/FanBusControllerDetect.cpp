@@ -1,5 +1,6 @@
 #include "Detector.h"
 #include "FanBusController.h"
+#include "FanController_FanBus.h"
 #include "RGBController_FanBus.h"
 #include "SettingsManager.h"
 
@@ -34,6 +35,10 @@ void DetectFanBusControllers()
                     RGBController_FanBus* rgb_controller = new RGBController_FanBus(controller);
 
                     ResourceManager::get()->RegisterRGBController(rgb_controller);
+
+                    FanController_FanBus* fan_controller = new FanController_FanBus(controller);
+
+                    ResourceManager::get()->RegisterFanController(fan_controller);
                 }
             }
         }
