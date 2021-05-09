@@ -683,6 +683,7 @@ HEADERS +=                                                                      
     Controllers/NZXTHuePlusController/NZXTHuePlusController.h                                   \
     Controllers/NZXTHuePlusController/RGBController_NZXTHuePlus.h                               \
     Controllers/NZXTKrakenController/NZXTKrakenController.h                                     \
+    Controllers/NZXTKrakenController/FanController_NZXTKraken.h                                 \
     Controllers/NZXTKrakenController/RGBController_NZXTKraken.h                                 \
     Controllers/OKSController/OKSKeyboardController.h                                           \
     Controllers/OKSController/RGBController_OKSKeyboard.h                                       \
@@ -1419,6 +1420,7 @@ SOURCES +=                                                                      
     Controllers/NZXTHuePlusController/RGBController_NZXTHuePlus.cpp                             \
     Controllers/NZXTKrakenController/NZXTKrakenController.cpp                                   \
     Controllers/NZXTKrakenController/NZXTKrakenControllerDetect.cpp                             \
+    Controllers/NZXTKrakenController/FanController_NZXTKraken.cpp                               \
     Controllers/NZXTKrakenController/RGBController_NZXTKraken.cpp                               \
     Controllers/OKSController/OKSKeyboardController.cpp                                         \
     Controllers/OKSController/OKSKeyboardControllerDetect.cpp                                   \
