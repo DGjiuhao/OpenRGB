@@ -713,6 +713,7 @@ HEADERS +=                                                                      
     Controllers/RazerController/RazerController.h                                               \
     Controllers/RazerController/RazerKrakenController.h                                         \
     Controllers/RazerController/RazerDevices.h                                                  \
+    Controllers/RazerController/FanController_Razer.h                                           \
     Controllers/RazerController/RGBController_Razer.h                                           \
     Controllers/RazerController/RGBController_RazerAddressable.h                                \
     Controllers/RazerController/RGBController_RazerKraken.h                                     \
@@ -1461,6 +1462,7 @@ SOURCES +=                                                                      
     Controllers/RazerController/RazerController.cpp                                             \
     Controllers/RazerController/RazerKrakenController.cpp                                       \
     Controllers/RazerController/RazerControllerDetect.cpp                                       \
+    Controllers/RazerController/FanController_Razer.cpp                                         \
     Controllers/RazerController/RGBController_Razer.cpp                                         \
     Controllers/RazerController/RGBController_RazerAddressable.cpp                              \
     Controllers/RazerController/RGBController_RazerKraken.cpp                                   \
