@@ -169,6 +169,7 @@ INCLUDEPATH +=                                                                  
     Controllers/GigabyteRGBFusionGPUController/                                                 \
     Controllers/GigabyteRGBFusion2GPUController/                                                \
     Controllers/GigabyteSuperIORGBController/                                                   \
+    Controllers/GoveeController/                                                                \
     Controllers/HoltekController/                                                               \
     Controllers/HPOmen30LController/                                                            \
     Controllers/HyperXDRAMController/                                                           \
@@ -531,6 +532,8 @@ HEADERS +=                                                                      
     Controllers/GigabyteRGBFusion2GPUController/GigabyteRGBFusion2GPUController.h               \
     Controllers/GigabyteRGBFusion2GPUController/RGBController_GigabyteRGBFusion2GPU.h           \
     Controllers/GigabyteSuperIORGBController/GigabyteSuperIORGBController.h                     \
+    Controllers/GoveeController/GoveeController.h                                               \
+    Controllers/GoveeController/RGBController_Govee.h                                           \
     Controllers/HoltekController/HoltekA070Controller.h                                         \
     Controllers/HoltekController/HoltekA1FAController.h                                         \
     Controllers/HoltekController/RGBController_HoltekA070.h                                     \
@@ -1218,6 +1221,9 @@ SOURCES +=                                                                      
     Controllers/GigabyteSuperIORGBController/GigabyteSuperIORGBController.cpp                   \
     Controllers/GigabyteSuperIORGBController/GigabyteSuperIORGBControllerDetect.cpp             \
     Controllers/GigabyteSuperIORGBController/RGBController_GigabyteSuperIORGB.cpp               \
+    Controllers/GoveeController/GoveeController.cpp                                             \
+    Controllers/GoveeController/GoveeControllerDetect.cpp                                       \
+    Controllers/GoveeController/RGBController_Govee.cpp                                         \
     Controllers/HoltekController/HoltekA070Controller.cpp                                       \
     Controllers/HoltekController/HoltekA1FAController.cpp                                       \
     Controllers/HoltekController/HoltekControllerDetect.cpp                                     \
